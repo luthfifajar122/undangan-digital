@@ -215,16 +215,16 @@ Preserved:
 
 ## Task 1.4 — Template Catalog
 
-- [ ] Create a dedicated Templates section.
-- [ ] Display the Elegant Javanese template.
-- [ ] Display the Modern Minimalist template.
-- [ ] Display the Islamic template.
-- [ ] Give each template a preview image or visual mockup.
-- [ ] Add a short description for each template.
-- [ ] Add a "View Demo" button to each template.
-- [ ] Use consistent card dimensions and spacing.
-- [ ] Ensure the catalog adapts to different screen sizes.
-- [ ] Use locally stored assets or properly licensed images where practical.
+- [x] Create a dedicated Templates section.
+- [x] Display the Elegant Javanese template.
+- [x] Display the Modern Minimalist template.
+- [x] Display the Islamic template.
+- [x] Give each template a preview image or visual mockup.
+- [x] Add a short description for each template.
+- [x] Add a "View Demo" button to each template.
+- [x] Use consistent card dimensions and spacing.
+- [x] Ensure the catalog adapts to different screen sizes.
+- [x] Use locally stored assets or properly licensed images where practical.
 
 **Important:** Demo buttons may initially point to planned demo routes, but must not lead to broken pages. If demo pages do not exist yet, use a temporary, clearly handled placeholder or disabled state.
 

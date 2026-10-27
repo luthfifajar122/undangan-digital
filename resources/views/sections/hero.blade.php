@@ -6,7 +6,7 @@
                     <h1 id="hero-title">Hari istimewamu, <em>layak dikenang</em> dengan indah.</h1>
                     <p class="hero-description">Bagikan kisah dan momen bahagiamu lewat undangan digital yang personal, elegan, dan mudah dibagikan kepada orang tersayang.</p>
                     <div class="hero-actions">
-                        <a class="hero-button hero-button-primary" href="#templates">Jelajahi Template <span aria-hidden="true">?</span></a>
+                    <a class="hero-button hero-button-primary" href="#templates">Jelajahi Template <span aria-hidden="true">→</span></a>
                         <a class="hero-button hero-button-whatsapp" href="{{ $whatsappNumber ? 'https://wa.me/' . $whatsappNumber . '?text=' . rawurlencode('Halo, saya ingin bertanya tentang undangan digital.') : '#kontak' }}" @if ($whatsappNumber) target="_blank" rel="noopener noreferrer" @endif>
                             <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><path d="M20.52 3.48A11.82 11.82 0 0 0 12.1 0C5.54 0 .2 5.34.2 11.9c0 2.1.55 4.15 1.6 5.96L.1 24l6.3-1.65a11.9 11.9 0 0 0 5.7 1.45h.01C18.67 23.8 24 18.46 24 11.9c0-3.18-1.24-6.17-3.48-8.42ZM12.1 21.78h-.01a9.9 9.9 0 0 1-5.04-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.85 9.85 0 0 1-1.51-5.25c0-5.46 4.45-9.9 9.91-9.9 2.65 0 5.13 1.03 7 2.9a9.84 9.84 0 0 1 2.9 7c0 5.46-4.45 9.9-9.91 9.9Zm5.44-7.42c-.3-.15-1.77-.87-2.05-.97-.28-.1-.48-.15-.68.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.88-.78-1.48-1.75-1.65-2.05-.18-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.38-.03-.53-.08-.15-.68-1.63-.93-2.23-.24-.58-.49-.5-.68-.51h-.58c-.2 0-.53.08-.8.38-.28.3-1.06 1.03-1.06 2.5 0 1.48 1.09 2.9 1.24 3.1.15.2 2.14 3.27 5.19 4.59.72.31 1.28.5 1.72.64.72.23 1.37.2 1.89.12.58-.09 1.77-.72 2.02-1.42.25-.7.25-1.3.18-1.42-.08-.13-.28-.2-.58-.35Z"/></svg>
                             Tanya via WhatsApp
@@ -47,7 +47,7 @@
                         <g transform="translate(42 84)"><rect width="74" height="74" rx="22" fill="#fffdfa"/><path d="M37 19v36M19 37h36" stroke="#c19c72" stroke-width="1.5"/><circle cx="37" cy="37" r="13" fill="none" stroke="#c19c72"/></g>
                         <g transform="translate(390 406)"><rect width="82" height="82" rx="24" fill="#6b4e3d"/><path d="M23 42c8-15 28-15 36 0-8 15-28 15-36 0Z" fill="none" stroke="#f7ead8" stroke-width="1.4"/><circle cx="41" cy="42" r="6" fill="#d4a574"/></g>
                     </svg>
-                    <div class="hero-art-caption"><span class="hero-caption-mark">?</span><span><strong>Dirancang dengan hati</strong><small>Untuk momen yang berarti</small></span></div>
+                    <div class="hero-art-caption"><span class="hero-caption-mark" aria-hidden="true">✦</span><span><strong>Dirancang dengan hati</strong><small>Untuk momen yang berarti</small></span></div>
                 </div>
             </section>
         </main>

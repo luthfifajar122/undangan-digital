@@ -1,9 +1,9 @@
 @extends('admin.layouts.app')
 
 @section('content')
-<h2 class="text-2xl font-bold mb-6">Tambah Template Baru</h2>
+<div class="mb-7"><p class="mb-1 text-sm font-medium text-[#9d8f7f]">DESAIN</p><h2 class="text-3xl font-semibold tracking-tight text-[#29241f]">Tambah Template</h2><p class="mt-1 text-sm text-gray-500">Tambahkan pilihan desain undangan.</p></div>
 
-<form action="{{ route('admin.templates.store') }}" method="POST" enctype="multipart/form-data" class="bg-white rounded-lg shadow p-6 max-w-2xl">
+<form action="{{ route('admin.templates.store') }}" method="POST" enctype="multipart/form-data" class="admin-card max-w-3xl p-5 sm:p-7">
     @csrf
     <div class="space-y-4">
         <div>
@@ -11,9 +11,9 @@
             <input type="text" name="name" value="{{ old('name') }}" class="w-full border rounded px-3 py-2" required>
         </div>
         <div>
-            <label class="block font-medium mb-1">Slug</label>
-            <input type="text" name="slug" value="{{ old('slug') }}" class="w-full border rounded px-3 py-2" required>
-            <p class="text-sm text-gray-500">Contoh: jawa, minimalis, islami (huruf kecil, tanpa spasi)</p>
+            <label class="block font-medium mb-1">Tema</label>
+            <input type="text" name="slug" value="{{ old('slug') }}" class="w-full border rounded px-3 py-2">
+            <p class="text-sm text-gray-500">Kode tema (huruf kecil, tanpa spasi). Kosongkan untuk dibuat otomatis dari nama template. Contoh: jawa, minimalis, islami</p>
         </div>
         <div>
             <label class="block font-medium mb-1">Kategori</label>

@@ -1,30 +1,30 @@
 @extends('admin.layouts.app')
 
 @section('content')
-<h2 class="text-2xl font-bold mb-6">Dashboard RSVP</h2>
+<div class="mb-7"><p class="mb-1 text-sm font-medium text-[#9d8f7f]">KEHADIRAN</p><h2 class="text-3xl font-semibold tracking-tight text-[#29241f]">Dashboard RSVP</h2><p class="mt-1 text-sm text-gray-500">Ringkasan konfirmasi dan jumlah tamu.</p></div>
 
 <!-- Stats -->
-<div class="grid grid-cols-4 gap-4 mb-6">
-    <div class="bg-white rounded-lg shadow p-4">
+<div class="mb-6 grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
+    <div class="admin-card p-5">
         <p class="text-sm text-gray-500">Total RSVP</p>
         <p class="text-2xl font-bold">{{ $stats['total'] }}</p>
     </div>
-    <div class="bg-white rounded-lg shadow p-4">
+    <div class="admin-card p-5">
         <p class="text-sm text-gray-500">Hadir</p>
         <p class="text-2xl font-bold text-green-600">{{ $stats['hadir'] }}</p>
     </div>
-    <div class="bg-white rounded-lg shadow p-4">
+    <div class="admin-card p-5">
         <p class="text-sm text-gray-500">Tidak Hadir</p>
         <p class="text-2xl font-bold text-red-600">{{ $stats['tidak_hadir'] }}</p>
     </div>
-    <div class="bg-white rounded-lg shadow p-4">
+    <div class="admin-card p-5">
         <p class="text-sm text-gray-500">Total Tamu Hadir</p>
         <p class="text-2xl font-bold text-blue-600">{{ $stats['total_guests'] }}</p>
     </div>
 </div>
 
 <!-- Filter -->
-<form method="GET" class="bg-white rounded-lg shadow p-4 mb-6 flex gap-4">
+<form method="GET" class="admin-card mb-6 flex flex-col gap-3 p-4 sm:flex-row">
     <select name="invitation_id" class="border rounded px-3 py-2">
         <option value="">Semua Undangan</option>
         @foreach ($invitations as $inv)
@@ -42,8 +42,8 @@
 </form>
 
 <!-- Table -->
-<div class="bg-white rounded-lg shadow overflow-hidden">
-    <table class="w-full">
+<div class="admin-card overflow-hidden">
+    <div class="overflow-x-auto"><table class="admin-table w-full text-sm">
         <thead class="bg-gray-50">
             <tr>
                 <th class="px-4 py-3 text-left">Tamu</th>
@@ -56,7 +56,7 @@
         </thead>
         <tbody>
             @foreach ($rsvps as $rsvp)
-            <tr class="border-t">
+            <tr>
                 <td class="px-4 py-3">{{ $rsvp->guest->name }}</td>
                 <td class="px-4 py-3 text-sm">{{ $rsvp->guest->invitation->bride_name }} & {{ $rsvp->guest->invitation->groom_name }}</td>
                 <td class="px-4 py-3">
@@ -70,7 +70,7 @@
             </tr>
             @endforeach
         </tbody>
-    </table>
+    </table></div>
 </div>
 
 {{ $rsvps->links() }}

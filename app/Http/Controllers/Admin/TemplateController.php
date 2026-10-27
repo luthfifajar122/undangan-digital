@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Template;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class TemplateController extends Controller
 {
@@ -24,13 +25,19 @@ class TemplateController extends Controller
     {
         $validated = $request->validate([
             'name' => 'required|string|max:255',
-            'slug' => 'required|string|max:100|alpha_dash|unique:templates,slug',
+            'slug' => 'nullable|string|max:100|alpha_dash|unique:templates,slug',
             'category' => 'required|string|max:100',
             'preview_image' => 'nullable|image|max:2048',
             'blade_path' => 'required|string|max:255',
             'config_json' => 'nullable|json',
             'is_active' => 'boolean',
+        ], [], [
+            'slug' => 'tema',
         ]);
+
+        if (empty($validated['slug'] ?? null)) {
+            $validated['slug'] = $this->generateUniqueSlug($validated['name']);
+        }
 
         if ($request->hasFile('preview_image')) {
             $validated['preview_image'] = $request->file('preview_image')->store('templates/preview', 'public');
@@ -53,13 +60,19 @@ class TemplateController extends Controller
     {
         $validated = $request->validate([
             'name' => 'required|string|max:255',
-            'slug' => 'required|string|max:100|alpha_dash|unique:templates,slug,'.$template->id,
+            'slug' => 'nullable|string|max:100|alpha_dash|unique:templates,slug,'.$template->id,
             'category' => 'required|string|max:100',
             'preview_image' => 'nullable|image|max:2048',
             'blade_path' => 'required|string|max:255',
             'config_json' => 'nullable|json',
             'is_active' => 'boolean',
+        ], [], [
+            'slug' => 'tema',
         ]);
+
+        if (empty($validated['slug'] ?? null)) {
+            unset($validated['slug']);
+        }
 
         if ($request->hasFile('preview_image')) {
             $validated['preview_image'] = $request->file('preview_image')->store('templates/preview', 'public');
@@ -83,5 +96,18 @@ class TemplateController extends Controller
 
         return redirect()->route('admin.templates.index')
             ->with('success', 'Template berhasil dihapus.');
+    }
+
+    private function generateUniqueSlug(string $source): string
+    {
+        $base = Str::slug($source) ?: 'tema';
+        $slug = $base;
+        $counter = 1;
+
+        while (Template::where('slug', $slug)->exists()) {
+            $slug = $base.'-'.(++$counter);
+        }
+
+        return $slug;
     }
 }

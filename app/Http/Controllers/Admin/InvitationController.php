@@ -10,6 +10,7 @@ use App\Models\Template;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
 class InvitationController extends Controller
 {
@@ -30,6 +31,12 @@ class InvitationController extends Controller
     public function store(Request $request)
     {
         $validated = $this->validateInvitation($request);
+
+        if (empty($validated['slug'] ?? null)) {
+            $validated['slug'] = $this->generateUniqueSlug(
+                $validated['bride_name'].' '.$validated['groom_name']
+            );
+        }
 
         $invitation = Invitation::create($validated);
 
@@ -67,6 +74,10 @@ class InvitationController extends Controller
     public function update(Request $request, Invitation $invitation)
     {
         $validated = $this->validateInvitation($request, $invitation->id);
+
+        if (empty($validated['slug'] ?? null)) {
+            unset($validated['slug']);
+        }
 
         // Handle music file upload
         if ($request->hasFile('music_file')) {
@@ -299,7 +310,7 @@ class InvitationController extends Controller
 
     private function validateInvitation(Request $request, $id = null)
     {
-        $slugRule = 'required|string|max:100|alpha_dash|unique:invitations,slug';
+        $slugRule = 'nullable|string|max:100|alpha_dash|unique:invitations,slug';
         if ($id) {
             $slugRule .= ','.$id;
         }
@@ -322,6 +333,21 @@ class InvitationController extends Controller
             'expires_at' => 'nullable|date',
             'settings_json' => 'nullable|json',
             'status' => 'required|in:draft,published,archived',
+        ], [], [
+            'slug' => 'alamat link undangan',
         ]);
+    }
+
+    private function generateUniqueSlug(string $source): string
+    {
+        $base = Str::slug($source) ?: 'undangan';
+        $slug = $base;
+        $counter = 1;
+
+        while (Invitation::where('slug', $slug)->exists()) {
+            $slug = $base.'-'.(++$counter);
+        }
+
+        return $slug;
     }
 }

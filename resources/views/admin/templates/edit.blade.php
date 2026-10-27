@@ -12,8 +12,9 @@
             <input type="text" name="name" value="{{ old('name', $template->name) }}" class="w-full border rounded px-3 py-2" required>
         </div>
         <div>
-            <label class="block font-medium mb-1">Slug</label>
-            <input type="text" name="slug" value="{{ old('slug', $template->slug) }}" class="w-full border rounded px-3 py-2" required>
+            <label class="block font-medium mb-1">Tema</label>
+            <input type="text" name="slug" value="{{ old('slug', $template->slug) }}" class="w-full border rounded px-3 py-2">
+            <p class="text-sm text-gray-500">Kode tema (huruf kecil, tanpa spasi). Kosongkan untuk mempertahankan tema saat ini.</p>
         </div>
         <div>
             <label class="block font-medium mb-1">Kategori</label>

@@ -1,3 +1,4 @@
+@php($whatsappNumber = preg_replace('/\D+/', '', (string) env('WHATSAPP_NUMBER', '')))
         <section id="templates" class="templates-section" aria-labelledby="templates-title">
             <div class="templates-inner">
                 <div class="templates-heading">
@@ -26,7 +27,7 @@
                             <p class="template-category">Klasik · Hangat · Berbudaya</p>
                             <h3>Elegan Jawa</h3>
                             <p>Sentuhan motif dan palet bumi yang membawa kehangatan tradisi dalam balutan modern.</p>
-                            <button class="template-demo-button" type="button" disabled aria-disabled="true">Lihat Demo (segera hadir)</button>
+                            <a class="template-order-link" href="{{ $whatsappNumber ? 'https://wa.me/' . $whatsappNumber . '?text=' . rawurlencode('Halo, saya tertarik dengan tema Elegan Jawa.') : '#kontak' }}" @if ($whatsappNumber) target="_blank" rel="noopener noreferrer" @endif>Tanya tema ini <span aria-hidden="true">→</span></a>
                         </div>
                     </article>
 
@@ -52,7 +53,7 @@
                             <p class="template-category">Bersih · Modern · Personal</p>
                             <h3>Minimalis Modern</h3>
                             <p>Tata letak lapang dan detail yang terpilih untuk merayakan kisah kalian dengan sederhana.</p>
-                            <button class="template-demo-button" type="button" disabled aria-disabled="true">Lihat Demo (segera hadir)</button>
+                            <a class="template-order-link" href="{{ $whatsappNumber ? 'https://wa.me/' . $whatsappNumber . '?text=' . rawurlencode('Halo, saya tertarik dengan tema Minimalis Modern.') : '#kontak' }}" @if ($whatsappNumber) target="_blank" rel="noopener noreferrer" @endif>Tanya tema ini <span aria-hidden="true">→</span></a>
                         </div>
                     </article>
 
@@ -77,7 +78,7 @@
                             <p class="template-category">Teduh · Islami · Penuh doa</p>
                             <h3>Islami</h3>
                             <p>Ornamen geometris lembut dan suasana teduh untuk mengawali perjalanan penuh berkah.</p>
-                            <button class="template-demo-button" type="button" disabled aria-disabled="true">Lihat Demo (segera hadir)</button>
+                            <a class="template-order-link" href="{{ $whatsappNumber ? 'https://wa.me/' . $whatsappNumber . '?text=' . rawurlencode('Halo, saya tertarik dengan tema Islami.') : '#kontak' }}" @if ($whatsappNumber) target="_blank" rel="noopener noreferrer" @endif>Tanya tema ini <span aria-hidden="true">→</span></a>
                         </div>
                     </article>
                 </div>

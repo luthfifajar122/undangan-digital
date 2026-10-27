@@ -57,10 +57,6 @@
                             <label class="block font-medium mb-1">Google Maps Link</label>
                             <input type="url" name="events[{{ $index }}][maps_link]" value="{{ $event->maps_link }}" class="w-full border rounded px-3 py-2">
                         </div>
-                        <div>
-                            <label class="block font-medium mb-1">Maps Embed (iframe src)</label>
-                            <input type="text" name="events[{{ $index }}][maps_embed]" value="{{ $event->maps_embed }}" class="w-full border rounded px-3 py-2">
-                        </div>
                     </div>
                 </div>
                 @endforeach
@@ -215,7 +211,6 @@ function addEvent() {
             <div><label class="block font-medium mb-1">Venue</label><input type="text" name="events[${index}][venue_name]" class="w-full border rounded px-3 py-2"></div>
             <div class="col-span-2"><label class="block font-medium mb-1">Alamat</label><textarea name="events[${index}][address]" rows="2" class="w-full border rounded px-3 py-2"></textarea></div>
             <div><label class="block font-medium mb-1">Google Maps Link</label><input type="url" name="events[${index}][maps_link]" class="w-full border rounded px-3 py-2"></div>
-            <div><label class="block font-medium mb-1">Maps Embed (iframe src)</label><input type="text" name="events[${index}][maps_embed]" class="w-full border rounded px-3 py-2"></div>
         </div>
     </div>`;
     container.insertAdjacentHTML('beforeend', html);

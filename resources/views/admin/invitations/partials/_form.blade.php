@@ -12,8 +12,9 @@
             </select>
         </div>
         <div>
-            <label class="block font-medium mb-1">Slug (URL)</label>
-            <input type="text" name="slug" value="{{ old('slug', $invitation?->slug) }}" class="w-full border rounded px-3 py-2" required>
+            <label class="block font-medium mb-1">Alamat Link Undangan</label>
+            <input type="text" name="slug" value="{{ old('slug', $invitation?->slug) }}" class="w-full border rounded px-3 py-2">
+            <p class="text-sm text-gray-500">Bagian akhir link undangan, misal: andi-putri. Kosongkan untuk dibuat otomatis dari nama pasangan.</p>
         </div>
         <div>
             <label class="block font-medium mb-1">Nama Mempelai Wanita</label>
@@ -50,10 +51,6 @@
         <div>
             <label class="block font-medium mb-1">Google Maps Link</label>
             <input type="url" name="maps_link" value="{{ old('maps_link', $invitation?->maps_link) }}" class="w-full border rounded px-3 py-2">
-        </div>
-        <div>
-            <label class="block font-medium mb-1">Maps Embed (iframe src)</label>
-            <input type="text" name="maps_embed" value="{{ old('maps_embed', $invitation?->maps_embed) }}" class="w-full border rounded px-3 py-2">
         </div>
         <div class="col-span-2">
             <label class="block font-medium mb-1">Kisah/Cerita Pasangan</label>

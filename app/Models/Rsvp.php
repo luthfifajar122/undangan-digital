@@ -1,0 +1,27 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+
+class Rsvp extends Model
+{
+    protected $fillable = [
+        'guest_id',
+        'status',
+        'guest_count',
+        'message',
+        'submitted_at',
+    ];
+
+    protected $casts = [
+        'guest_count' => 'integer',
+        'submitted_at' => 'datetime',
+    ];
+
+    public function guest(): BelongsTo
+    {
+        return $this->belongsTo(Guest::class);
+    }
+}
